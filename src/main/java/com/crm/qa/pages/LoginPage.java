@@ -9,7 +9,12 @@ import com.crm.qa.base.TestBase;
 
 public class LoginPage extends TestBase{
 	
-	//Page Factory - OR:
+	// Create page class for login page of FreeCRM application https://www.freecrm.com
+	// use page factory to initialize the web elements
+	// inlcude a method to test Home page title after clicking on login button
+
+
+	//PageFactory - OR:
 	@FindBy(name="username")
 	WebElement username;
 	
