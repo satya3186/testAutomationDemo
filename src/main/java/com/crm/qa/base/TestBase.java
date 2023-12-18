@@ -43,7 +43,7 @@ public class TestBase {
 			driver = new ChromeDriver(); 
 		}
 		else if(browserName.equals("FF")){
-			//System.setProperty("webdriver.gecko.driver", "C:\\Users\\Naveen\\Desktop\\Selenium\\geckodriver.exe");
+			System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+ "\\src\\main\\resources\\drivers\\geckodriver-v0.24.0-win64\\geckodriver.exe");
 			driver = new FirefoxDriver(); 
 		}
 		

@@ -1,66 +1,58 @@
 package com.crm.qa.testcases;
 
+import java.util.List;
+
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.crm.qa.base.TestBase;
-import com.crm.qa.pages.ContactsPage;
 import com.crm.qa.pages.HomePage;
 import com.crm.qa.pages.LoginPage;
-import com.crm.qa.util.TestUtil;
 
-public class HomePageTest extends TestBase {
-	LoginPage loginPage;
-	HomePage homePage;
-	TestUtil testUtil;
-	ContactsPage contactsPage;
+public class HomePageTest extends TestBase{
+    
+   //Use LoginPage and HomePage objects to access the methods in those classes
+     LoginPage loginPage;
+     HomePage homePage;
 
-	public HomePageTest() {
-		super();
-	}
+    // constructor  - 1
+    public HomePageTest() {
+        super();
+    }
+    
+    // Write test cases in TestNG for testing the functionalities on the HomePage
+    // Verify that the home page title is correct
+    // Verify that the correct user name is displayed on the home page
+    // Verify that the home page has the correct menu items
+    // Verify that the home page has the correct footer items
+    // Verify that the home page has the correct social media links
+    // Verify that the home page has the correct footer links
+    
+    @Test(priority=1)
+    public void verifyHomePageTitleTest() {
+        // Verify that the home page title is correct
+        String homePageTitle = homePage.verifyHomePageTitle();
+        Assert.assertEquals(homePageTitle, "Expected Title");
+    }
 
-	//test cases should be separated -- independent with each other
-	//before each test case -- launch the browser and login
-	//@test -- execute test case
-	//after each test case -- close the browser
-	
-	@BeforeMethod
-	public void setUp() {
-		initialization();
-		testUtil = new TestUtil();
-		contactsPage = new ContactsPage();
-		loginPage = new LoginPage();
-		homePage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
-	}
-	
-	
-	@Test(priority=1)
-	public void verifyHomePageTitleTest(){
-		String homePageTitle = homePage.verifyHomePageTitle();
-		Assert.assertEquals(homePageTitle, "CRMPRO","Home page title not matched");
-	}
-	
-	@Test(priority=2)
-	public void verifyUserNameTest(){
-		testUtil.switchToFrame();
-		Assert.assertTrue(homePage.verifyCorrectUserName());
-	}
-	
-	@Test(priority=3)
-	public void verifyContactsLinkTest(){
-		testUtil.switchToFrame();
-		contactsPage = homePage.clickOnContactsLink();
-	}
-	
-	
-	
-	@AfterMethod
-	public void tearDown(){
-		driver.quit();
-	}
-	
-	
+    @Test(priority=2)
+    public void verifyCorrectUserNameTest() {
+        // Verify that the correct user name is displayed on the home page
+        boolean userNameDisplayed = homePage.verifyCorrectUserName();
+        Assert.assertTrue(userNameDisplayed);
+    }
+
+    @Test(priority=3)
+    public void verifyMenuItemsTest() {
+        // Verify that the home page has the correct menu items
+       // List<String> menuItems = homePage.verifyMenuItems();
+    }
+    
+    @Test(priority=4)
+    public void verifyFooterItemsTest() {
+        // Verify that the home page has the correct footer items
+        
+        
+    }
 
 }

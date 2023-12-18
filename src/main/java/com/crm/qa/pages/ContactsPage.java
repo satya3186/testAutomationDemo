@@ -10,6 +10,11 @@ import com.crm.qa.base.TestBase;
 
 public class ContactsPage extends TestBase {
 
+	//create a page class for the contact Page https://ui.cogmento.com/contacts/new
+	//use the contacts.html file in testAutomationDemo/src/main/java/com/crm/qa/testdata/contacts.html for locator references
+	// use page factory to initialize the web elements
+    // add methods to create a new contact and to validate the new contact created
+	
 	@FindBy(xpath = "//td[contains(text(),'Contacts')]")
 	WebElement contactsLabel;
 	
@@ -54,8 +59,6 @@ public class ContactsPage extends TestBase {
 		saveBtn.click();
 		
 	}
-	
-	
-	
+
 
 }
