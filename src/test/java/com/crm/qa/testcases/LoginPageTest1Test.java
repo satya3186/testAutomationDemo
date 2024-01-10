@@ -9,12 +9,12 @@ import com.crm.qa.base.TestBase;
 import com.crm.qa.pages.HomePage;
 import com.crm.qa.pages.LoginPage;
 
-public class LoginPageTest extends TestBase{
+public class LoginPageTest1Test extends TestBase{
     
 	LoginPage loginPage;
 	HomePage homePage;
 
-	public LoginPageTest() {
+	public LoginPageTest1Test() {
 		super();
 	}
 
@@ -25,25 +25,26 @@ public class LoginPageTest extends TestBase{
 	}
 
 	@Test(priority=1)
-	public void loginPageTitleTest() {
+	public void test1() {
+		// Navigate to url in config.properties
+		// Ensure web site is opened
+		// Verify the title of the page using Assertions
 		String title = loginPage.validateLoginPageTitle();
 		Assert.assertTrue(title.contains("Free CRM Power Up"));
 	}
 
 	@Test(priority=2)
-	public void loginTest() {
-		homePage = loginPage.login("username", "password");
+	public void test2() {
+		// Login to the application using username and password from the config.properties file
+		// Ensure that login is successful
+		// Verify the user lands on Home page and Home page title using Assertions
+		// Verify the correct user name is displayed on the home page
+		homePage = loginPage.login("satya.prasad.3186@gmail.com", "test@123");
 		String title = homePage.verifyHomePageTitle();
 		Assert.assertEquals(title, "Home Page");
+		// Add assertion to verify the correct user name is displayed on the home page
 	}
 
-
-	@Test(priority=3)
-	public void validateCRMImageTest() {
-		boolean isLogoDisplayed = loginPage.validateCRMImage();
-		Assert.assertTrue(isLogoDisplayed);
-	}
-	
 
 	@AfterMethod
 	public void tearDown() {

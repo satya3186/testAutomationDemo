@@ -9,15 +9,10 @@ import com.crm.qa.base.TestBase;
 
 public class LoginPage extends TestBase{
 	
-	// Create page class structure for login page of FreeCRM application https://www.freecrm.com
-	// use the loginpage.html file in testAutomationDemo/src/main/java/com/crm/qa/testdata/loginpage.html for locator references
-	// use page factory to initialize the web elements
-	// include a method to test Home page title after clicking on login button
-
-	@FindBy(name="email")
+	@FindBy(xpath="//*[@name='email']")
 	WebElement username;
 
-	@FindBy(name="password")
+	@FindBy(xpath="//*[@name='password']")
 	WebElement password;
 
 	@FindBy(xpath="//*[contains(text(),'Login')")
@@ -44,6 +39,7 @@ public class LoginPage extends TestBase{
 	}
 
 	public HomePage login(String un, String pwd){
+		
 		username.sendKeys(un);
 		password.sendKeys(pwd);
 		//loginBtn.click();
